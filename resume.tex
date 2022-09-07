@@ -1,0 +1,204 @@
+\documentclass{article}
+
+\usepackage{enumitem}
+\usepackage{fontawesome}
+\usepackage[margin = 0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{marvosym}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%
+% DEFINITIONS %
+%%%%%%%%%%%%%%%
+
+\definecolor{MyBlue1}{RGB}{28, 43, 112}
+\definecolor{MyBlue2}{RGB}{35, 54, 140}
+\definecolor{MyBlue3}{RGB}{42, 65, 168}
+
+\pagestyle{empty}
+\setlength\columnsep{30pt}
+
+\titleformat{\section}{\color{MyBlue2}\LARGE\bfseries}{}{0em}{}[]
+\titleformat{\subsection}{\color{MyBlue1}\bfseries\large}{}{0em}{}
+\titleformat{\subsubsection}[runin]{\bfseries}{}{0em}{}[ -]
+
+\titlespacing{\section}{0em}{0em}{0em}
+\titlespacing{\subsection}{0em}{1em}{0.25em}
+\titlespacing{\subsubsection}{0em}{0em}{0.25em}
+
+\setlength{\leftmargini}{16pt}
+\setlength{\parindent}{0pt}
+
+\renewcommand{\maketitle}{
+    \begin{center}
+
+        {\color{MyBlue3}\Huge\bfseries
+            \theauthor
+        }
+
+        \vspace{0.3em}
+
+        {
+            \href{mailto:arnav.kumar.sri@gmail.com}{\faEnvelope \ arnav.kumar.sri@gmail.com} \quad
+            \href{https://github.com/arnavcs}{\faGithub \ arnavcs} \quad
+            \href{https://arnavcs.github.io/}{\faGlobe \ arnavcs.github.io} \quad
+            \href{https://www.linkedin.com/in/arnav-kumar-0644881a3/}{\faLinkedin \ Arnav Kumar}
+        }
+
+    \end{center}
+}
+
+\newcommand{\moduleHeadT}[2]{
+    \vspace{0.5em}
+    \textbf{#1} \dotfill #2 \\[0em]
+}
+
+\newcommand{\moduleHeadTA}[2]{
+    \vspace{0.5em}
+    \textbf{#1} \dotfill #2 \\[-1em]
+}
+
+\newcommand{\moduleHeadF}[4]{
+    \vspace{0.5em}
+    \textbf{#1} \dotfill #2 \\[0.1em]
+    \textit{#3} \hfill   #4 \\[0em]
+}
+
+\newcommand{\moduleHeadFA}[4]{
+    \vspace{0.5em}
+    \textbf{#1} \dotfill #2 \\[0.1em]
+    \textit{#3} \hfill   #4 \\[-1em]
+}
+
+\newcommand{\ach}[3]{
+    #1, \textbf{#2} \dotfill #3 \\[-1em]
+}
+
+\newenvironment{compactList}
+{
+    \vspace{-2em}
+    \begin{itemize}[itemsep=-5pt, label=$-$]
+}
+{
+    \end{itemize}
+    \vspace{-0.8em}
+}
+
+%%%%%%%%%%%
+% CONTENT %
+%%%%%%%%%%%
+
+\begin{document}
+
+\title{R\'esum\'e}
+\author{Arnav Kumar}
+
+\maketitle
+
+%% PROJECTS
+
+\section{Projects}
+
+\moduleHeadT{\href{https://github.com/arnavcs/cli-chess-engine}{Haskell CLI Chess Engine}}{Aug 2022 - Present}
+\begin{compactList}
+    \item A functional programming chess engine that enables one to play chess from the command line.
+    \item Heavily uses the maybe monad, and  lists as applicatives, monads, and functors.
+\end{compactList}
+
+\moduleHeadT{\href{https://github.com/arnavcs/arnavcs.github.io}{Javascript Modular Personal Website}}{Mar 2022 - Aug 2022}
+\begin{compactList}
+    \item Built a modular website with javascript which reads from a contents data structure to generate a site.
+\end{compactList}
+
+\moduleHeadT{\href{https://github.com/arnavcs/flashcards}{Bash Flashcards}}{Apr 2022 - Apr 2022}
+\begin{compactList}
+    \item Built a tool to add terms and practice with a flashcard set for unix based systems.
+\end{compactList}
+
+\moduleHeadT{\href{https://github.com/arnavcs/ASCII-art}{Python Braille ASCII Art Generator}}{Apr 2021 - Jul 2021}
+\begin{compactList}
+    \item Takes images, and converts it into ASCII art using braille characters using the OpenCV library.
+\end{compactList}
+
+\moduleHeadT{\href{https://github.com/arnavcs/OSIC-IPF}{Prognosing Idiopathic Pulmonary Fibrosis}}{Dec 2020 - Jun 2021}
+\begin{compactList}
+    \item Predicted the future lung volume of Idiopathic Pulmonary Fibrosis patients with Tensorflow2, Pandas, and Scikit-learn. 
+    \item Implemented an auto-encoder, linear regression, dense neural network, and Bayesian model.
+\end{compactList}
+
+\moduleHeadT{\href{https://github.com/arnavcs/black-jack}{C++ Blackjack}}{Apr 2021 - Jul 2021}
+\begin{compactList}
+    \item Used object oriented programming to implement a blackjack game which the computer plays as the house.
+\end{compactList}
+
+\moduleHeadT{\href{https://github.com/arnavcs/game-of-life}{Javascript Conway's Game of Life}}{Apr 2020 - Mar 2020}
+\begin{compactList}
+    \item Created a javascript web version of Conway's Game of Life where generations can be simulated.
+\end{compactList}
+
+%% ACHIEVEMENTS
+
+\section{Achievements}
+
+\vspace{2em}
+\begin{compactList}
+    \item \ach{$10^{\mathrm{th}}$ in Canada}{Asian Pacific Mathematics Olympiad}{2022}
+    \item \ach{$11^{\mathrm{th}}$ in Canada}{Canadian Association of Physicists High School Exam}{2022}
+    \item \ach{2 time qualifier, $18^{\mathrm{th}}$ in Canada}{Canadian Mathematical Olympiad}{2021 - 2022}
+    \item \ach{Ranked $12^{\mathrm{th}}$ in Canada and $17^{\mathrm{th}}$ internationally}{Sir Isaac Newton Physics Exam}{2021 - 2022}
+    \item \ach{Invited to write}{United States of America Mathematical Olympiad}{2022}
+    \item \ach{Bronze medalist}{Canada Wide Science Fair}{2021}
+\end{compactList}
+
+    
+%% EXPERIENCE
+
+\section{Experience}
+
+\moduleHeadF{Tektorch.ai}{Apr 2022 - Jul 2022}{Part-time junior programmer}{Online}
+\begin{compactList}
+    \item Learned web scraping, the project design process, and some basic data manipulation with python.
+\end{compactList}
+
+\moduleHeadF{Code Ninjas West Springs}{Mar 2022 - Apr 2022}{Part-time code sensei}{Calgary, AB.}
+\begin{compactList}
+    \item Mentored young students and helped them complete programming challenges in scratch, makecode, and javascript.
+\end{compactList}
+
+\moduleHeadF{University of Alberta}{Jul 2021 - Aug 2021}{Computing Science High School Intern}{Online}
+\begin{compactList}
+    \item Analysed and created graphs of mouse position data during a psychology experiment.
+    \item Created natural language processing models to help determine the cause of a change in depressive language in Tweets.
+\end{compactList}
+
+%% EDUCATION
+
+\section{Education}
+
+\moduleHeadF{University of Waterloo}{2022 - Present}{Bachelor of Computer Science}{Waterloo, ON.}
+\begin{compactList}
+    \item Admitted with the Ronald G. Dunkley National Scholarship and the President's Entrance Scholarship of Distinction.
+    \item Plan on doubling majoring in pure math and computer science.
+\end{compactList}
+
+% \moduleHeadFA{International Summer School for Young Physicists (ISSYP)}{Summer 2021}{Perimeter Institute for Theoretical Physics}{Online}
+
+% \moduleHeadFA{Quantum Cryptography School for Young Students (QCSYS)}{Summer 2020}{Institute for Quantum Computing, University of Waterloo}{Online}
+
+\moduleHeadF{Webber Academy}{2008 - 2022}{Webber Scholar from grade 6 to 12}{Calgary, AB.}
+\begin{compactList}
+    \item President of the Student Union and annual merit scholarship recipient.
+\end{compactList}
+
+%% SKILLS 
+
+% \section{Skills}
+% 
+% \subsubsection{Languages}
+% Haskell, Python, C++, JavaScript, Java, Bash, {\LaTeX}, HTML, CSS, Markdown
+
+
+\end{document}
