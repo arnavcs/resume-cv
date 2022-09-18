@@ -2,7 +2,7 @@
 
 \usepackage{enumitem}
 \usepackage{fontawesome}
-\usepackage[margin = 0.5in]{geometry}
+\usepackage[margin = 0.5in, top=0.4in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{marvosym}
 \usepackage{titlesec}
@@ -18,73 +18,66 @@
 \definecolor{MyBlue2}{RGB}{35, 54, 140}
 \definecolor{MyBlue3}{RGB}{42, 65, 168}
 
+\newcommand{\smallbullet}{\,\begin{picture}(-1,1)(-1,-3)\circle*{3}\end{picture}\ }
+
 \pagestyle{empty}
 \setlength\columnsep{30pt}
 
-\titleformat{\section}{\color{MyBlue2}\LARGE\bfseries}{}{0em}{}[]
+\titleformat{\section}{\color{MyBlue2}\Large\bfseries}{}{0em}{}[\titlerule]
 \titleformat{\subsection}{\color{MyBlue1}\bfseries\large}{}{0em}{}
-\titleformat{\subsubsection}[runin]{\bfseries}{}{0em}{}[ -]
+\titleformat{\subsubsection}[runin]{\bfseries}{}{0em}{}[:]
 
 \titlespacing{\section}{0em}{0em}{0em}
-\titlespacing{\subsection}{0em}{1em}{0.25em}
+\titlespacing{\subsection}{0em}{0em}{0.25em}
 \titlespacing{\subsubsection}{0em}{0em}{0.25em}
 
 \setlength{\leftmargini}{16pt}
 \setlength{\parindent}{0pt}
 
+\setlist{nolistsep}
+
 \renewcommand{\maketitle}{
     \begin{center}
+    {\color{MyBlue3}\Huge\bfseries
+        \theauthor
+    }
 
-        {\color{MyBlue3}\Huge\bfseries
-            \theauthor
-        }
-
-        \vspace{0.3em}
-
-        {
-            \href{mailto:arnav.kumar.sri@gmail.com}{\faEnvelope \ arnav.kumar.sri@gmail.com} \quad
-            \href{https://github.com/arnavcs}{\faGithub \ arnavcs} \quad
-            \href{https://arnavcs.github.io/}{\faGlobe \ arnavcs.github.io} \quad
-            \href{https://www.linkedin.com/in/arnav-kumar-0644881a3/}{\faLinkedin \ Arnav Kumar}
-        }
-
+    \vspace{0.3em}
+    {
+        \href{mailto:arnav.kumar.sri@gmail.com}{\faEnvelope \ arnav.kumar.sri@gmail.com} \quad
+        \href{https://github.com/arnavcs}{\faGithub \ arnavcs} \quad
+        \href{https://arnavcs.github.io/}{\faGlobe \ arnavcs.github.io} \quad
+        \href{https://www.linkedin.com/in/arnav-kumar-0644881a3/}{\faLinkedin \ Arnav Kumar}
+    }
+    \vspace{-1em}
     \end{center}
 }
 
-\newcommand{\moduleHeadT}[2]{
-    \vspace{0.5em}
-    \textbf{#1} \dotfill #2 \\[0em]
-}
-
-\newcommand{\moduleHeadTA}[2]{
-    \vspace{0.5em}
-    \textbf{#1} \dotfill #2 \\[-1em]
-}
-
-\newcommand{\moduleHeadF}[4]{
-    \vspace{0.5em}
-    \textbf{#1} \dotfill #2 \\[0.1em]
-    \textit{#3} \hfill   #4 \\[0em]
-}
-
-\newcommand{\moduleHeadFA}[4]{
-    \vspace{0.5em}
-    \textbf{#1} \dotfill #2 \\[0.1em]
-    \textit{#3} \hfill   #4 \\[-1em]
-}
-
-\newcommand{\ach}[3]{
-    #1, \textbf{#2} \dotfill #3 \\[-1em]
-}
-
-\newenvironment{compactList}
+\newenvironment{resumeItem}
 {
-    \vspace{-2em}
-    \begin{itemize}[itemsep=-5pt, label=$-$]
+    \vspace{0.5em}
+}
+{
+}
+
+\newcommand{\projectHead}[3]{
+    \textbf{#1} $\vert$ \textit{#2} \hfill #3 \\[-1.2em]
+}
+
+\newcommand{\achievement}[3]{
+    #1, \textbf{#2} \dotfill #3 \\[-1.2em]
+}
+
+\newcommand{\experienceHead}[4]{
+    \textbf{#1} @ #2 \hfill #3 \\[-1.2em]
+}
+
+\newenvironment{resumeList}
+{
+    \begin{itemize}[label=\smallbullet]
 }
 {
     \end{itemize}
-    \vspace{-0.8em}
 }
 
 %%%%%%%%%%%
@@ -102,108 +95,153 @@
 
 \section{Projects}
 
-\moduleHeadT{\href{https://github.com/arnavcs/cli-chess-engine}{Haskell CLI Chess Engine}}{Aug 2022 - Present}
-\begin{compactList}
-    \item A functional programming chess engine that enables one to play chess from the command line.
-    \item Heavily uses the maybe monad, and  lists as applicatives, monads, and functors.
-\end{compactList}
+\begin{resumeItem}
+\projectHead{\href{https://github.com/arnavcs/cli-chess-engine}{CLI Chess Engine}}{Haskell}{Aug 2022 - Present}
+\begin{resumeList}
+    \item Implemented maybe monads to create safe functions for when there is nonsensical function application.
+    \item Created custom haskell data types (such as a position data type) and ensured that no position could be created with had no meaning in the context of the board.
+    \item Employed the use of applicative functors and monad operations on lists to write more concise code for tasks such as finding the cartesian product of two lists.
+\end{resumeList}
+\end{resumeItem}
 
-\moduleHeadT{\href{https://github.com/arnavcs/arnavcs.github.io}{Javascript Modular Personal Website}}{Mar 2022 - Aug 2022}
-\begin{compactList}
-    \item Built a modular website with javascript which reads from a contents data structure to generate a site.
-\end{compactList}
+\begin{resumeItem}
+\projectHead{\href{https://github.com/arnavcs/arnavcs.github.io}{Modular Personal Website}}{Javascript, HTML, CSS}{Mar 2022 - Aug 2022}
+\begin{resumeList}
+    \item Built a simple content management system (CMS) with javascript which generates a DOM object from given data.
+    \item Added several different section templates based on the type of information being conveyed.
+\end{resumeList}
+\end{resumeItem}
 
-\moduleHeadT{\href{https://github.com/arnavcs/flashcards}{Bash Flashcards}}{Apr 2022 - Apr 2022}
-\begin{compactList}
-    \item Built a tool to add terms and practice with a flashcard set for unix based systems.
-\end{compactList}
+% \begin{resumeItem}
+% \projectHead{\href{https://github.com/arnavcs/flashcards}{CLI Flashcards}}{Bash}{Apr 2022 - Apr 2022}
+% \begin{resumeList}
+%     \item Built a command line tool to add terms to, and practice with a flashcard set that the user can create.
+%     \item Implemented several flag options, including a help option, version option, and script update option.
+% \end{resumeList}
+% \end{resumeItem}
 
-\moduleHeadT{\href{https://github.com/arnavcs/ASCII-art}{Python Braille ASCII Art Generator}}{Apr 2021 - Jul 2021}
-\begin{compactList}
-    \item Takes images, and converts it into ASCII art using braille characters using the OpenCV library.
-\end{compactList}
+\begin{resumeItem}
+\projectHead{\href{https://github.com/arnavcs/ASCII-art}{Braille ASCII Art Generator}}{Python, OpenCV}{Apr 2021 - Jul 2021}
+\begin{resumeList}
+    \item Used OpenCV to manipulate and scale an input image and used thresholding to determine which cells of the output art should be colored.
+    \item Translated the desired output image array into braille characters where every 2x3 block of cells was turned into a number corresponding to the desired ASCII braille character.
+\end{resumeList}
+\end{resumeItem}
 
-\moduleHeadT{\href{https://github.com/arnavcs/OSIC-IPF}{Prognosing Idiopathic Pulmonary Fibrosis}}{Dec 2020 - Jun 2021}
-\begin{compactList}
-    \item Predicted the future lung volume of Idiopathic Pulmonary Fibrosis patients with Tensorflow2, Pandas, and Scikit-learn. 
-    \item Implemented an auto-encoder, linear regression, dense neural network, and Bayesian model.
-\end{compactList}
+\begin{resumeItem}
+\projectHead{\href{https://github.com/arnavcs/OSIC-IPF}{Prognosing Idiopathic Pulmonary Fibrosis (IPF)}}{Python, Tensorflow2, Pandas, Scikit-learn}{Dec 2020 - Jun 2021}
+\begin{resumeList}
+    \item Predicted and gave a confidence value of the future lung volume of Idiopathic Pulmonary Fibrosis patients based on their initial lung capacity, and demographic (age, sex, smoking status, and more).
+    \item Implemented an auto-encoder, linear regression, dense neural network, and bayesian model, which were able to accurately predict future lung capacity values with a standard deviation of approximately 200mL for the bayesian model.
+    \item Obtained a Laplace Log Likelihood score of approximately -6.9, much better than the baseline score of -8.1.
+\end{resumeList}
+\end{resumeItem}
 
-\moduleHeadT{\href{https://github.com/arnavcs/black-jack}{C++ Blackjack}}{Apr 2021 - Jul 2021}
-\begin{compactList}
+\begin{resumeItem}
+\projectHead{\href{https://github.com/arnavcs/black-jack}{Blackjack}}{C++}{Apr 2021 - Jul 2021}
+\begin{resumeList}
     \item Used object oriented programming to implement a blackjack game which the computer plays as the house.
-\end{compactList}
+    \item Sanitized user input and formatted output to be very readable, while displaying the player total.
+\end{resumeList}
+\end{resumeItem}
 
-\moduleHeadT{\href{https://github.com/arnavcs/game-of-life}{Javascript Conway's Game of Life}}{Apr 2020 - Mar 2020}
-\begin{compactList}
-    \item Created a javascript web version of Conway's Game of Life where generations can be simulated.
-\end{compactList}
-
+% \begin{resumeItem}
+% \projectHead{\href{https://github.com/arnavcs/game-of-life}{Conway's Game of Life}}{Javascript}{Apr 2020 - Mar 2020}
+% \begin{resumeList}
+%     \item Created a javascript web version of Conway's Game of Life where a user chosen number of generations can be simulated.
+%     \item Enabled the user to choose an initial arrangement of live and dead cells as well as the size of the initial grid.
+% \end{resumeList}
+% \end{resumeItem}
+ 
 %% ACHIEVEMENTS
 
 \section{Achievements}
 
-\vspace{2em}
-\begin{compactList}
-    \item \ach{$10^{\mathrm{th}}$ in Canada}{Asian Pacific Mathematics Olympiad}{2022}
-    \item \ach{$11^{\mathrm{th}}$ in Canada}{Canadian Association of Physicists High School Exam}{2022}
-    \item \ach{2 time qualifier, $18^{\mathrm{th}}$ in Canada}{Canadian Mathematical Olympiad}{2021 - 2022}
-    \item \ach{Ranked $12^{\mathrm{th}}$ in Canada and $17^{\mathrm{th}}$ internationally}{Sir Isaac Newton Physics Exam}{2021 - 2022}
-    \item \ach{Invited to write}{United States of America Mathematical Olympiad}{2022}
-    \item \ach{Bronze medalist}{Canada Wide Science Fair}{2021}
-\end{compactList}
+\begin{resumeItem}
+\begin{resumeList}
+    \item \achievement{$10^{\mathrm{th}}$ in Canada}{Asian Pacific Mathematics Olympiad}{2022}
+    \item \achievement{$11^{\mathrm{th}}$ in Canada}{Canadian Association of Physicists High School Exam}{2022}
+    \item \achievement{2 time qualifier, $18^{\mathrm{th}}$ in Canada}{Canadian Mathematical Olympiad}{2021 - 2022}
+    \item \achievement{Ranked $12^{\mathrm{th}}$ in Canada and $17^{\mathrm{th}}$ internationally}{Sir Isaac Newton Physics Exam}{2021 - 2022}
+    \item \achievement{Invited to write}{United States of America Mathematical Olympiad}{2022}
+    \item \achievement{Bronze medalist for project on Prognosing IPF}{Canada Wide Science Fair}{2021}
+\end{resumeList}
+\end{resumeItem}
 
     
 %% EXPERIENCE
 
 \section{Experience}
 
-\moduleHeadF{Tektorch.ai}{Apr 2022 - Aug 2022}{Part-time junior programmer}{Online}
-\begin{compactList}
-    \item Learned web scraping, the project design process, and some basic data manipulation with python.
-\end{compactList}
+\begin{resumeItem}
+\experienceHead{Part-time programmer}{Tektorch.ai}{Apr 2022 - Aug 2022}{Online}
+\begin{resumeList}
+    \item Created a web scraper for a jobs listing website using python, beatiful soup 4, numpy, and pandas to get features such as the job title, location, classification, and pay.
+    \item Analysed and explored the nature of the data through data visualization using matplotlib, and regular expressions. 
+    \item Created and learned the project design process by splitting tasks into managable, independant subtasks.
+\end{resumeList}
+\end{resumeItem}
 
-\moduleHeadF{Mathematics Competition Teacher}{Aug 2021 - June 2022}{Voluntary math competition teacher}{Calgary, AB.}
-\begin{compactList}
-    \item Taught 4 children competition mathematics every week for 90 minutes after school.
-\end{compactList}
+% \begin{resumeItem}
+% \experienceHead{Math competition teacher}{Webber Academy}{Aug 2021 - June 2022}{Calgary, AB.}
+% \begin{resumeList}
+%     \item Taught 4 children competition mathematics every week for 90 minutes after school.
+% \end{resumeList}
+% \end{resumeItem}
 
-\moduleHeadF{Code Ninjas West Springs}{Mar 2022 - Apr 2022}{Part-time code sensei}{Calgary, AB.}
-\begin{compactList}
-    \item Mentored young students and helped them complete programming challenges in scratch, makecode, and javascript.
-\end{compactList}
+\begin{resumeItem}
+\experienceHead{Part-time code sensei}{Code Ninjas West Springs}{Mar 2022 - Apr 2022}{Calgary, AB.}
+\begin{resumeList}
+    \item Worked with over 45 young students to help them complete programming challenges in scratch, makecode, and javascript.
+    \item Summarized the progress of the students and reported to the manager.
+\end{resumeList}
+\end{resumeItem}
 
-\moduleHeadF{University of Alberta}{Jul 2021 - Aug 2021}{Computing Science High School Intern}{Online}
-\begin{compactList}
-    \item Analysed and created graphs of mouse position data during a psychology experiment.
-    \item Created natural language processing models to help determine the cause of a change in depressive language in Tweets.
-\end{compactList}
+\begin{resumeItem}
+\experienceHead{Computing Science High School Intern}{University of Alberta}{Jul 2021 - Aug 2021}{Online}
+\begin{resumeList}
+    \item Created graphs and animated GIFs of mouse position data during a psychology experiment using matplotlib.
+    \item Used bash scripting to automate the creation of these graphs for all of the mouse data.
+    \item Created natural language processing models based on word vectors to help determine the cause of a change in depressive language in Tweets.
+\end{resumeList}
+\end{resumeItem}
 
 %% EDUCATION
 
-\section{Education}
+\section{Education and Skills}
 
-\moduleHeadF{University of Waterloo}{2022 - Present}{Bachelor of Computer Science}{Waterloo, ON.}
-\begin{compactList}
-    \item Admitted with the Ronald G. Dunkley National Scholarship and the President's Entrance Scholarship of Distinction.
-    \item Plan on doubling majoring in pure math and computer science.
-\end{compactList}
+\begin{resumeItem}
+\experienceHead{Bachelor of Computer Science}{University of Waterloo}{2022 - Present}{Waterloo, ON.}
+\begin{resumeList}
+    \item Recieved the Ronald G. Dunkley National Scholarship and the President's Entrance Scholarship of Distinction.
+\end{resumeList}
+\end{resumeItem}
 
-% \moduleHeadFA{International Summer School for Young Physicists (ISSYP)}{Summer 2021}{Perimeter Institute for Theoretical Physics}{Online}
+% \begin{resumeItem}
+% \experienceHead{International Summer School for Young Physicists (ISSYP)}{Perimeter Institute for Theoretical Physics}{Summer 2021}{Online}
+% \end{resumeItem}
 
-% \moduleHeadFA{Quantum Cryptography School for Young Students (QCSYS)}{Summer 2020}{Institute for Quantum Computing, University of Waterloo}{Online}
+% \begin{resumeItem}
+% \experienceHead{Quantum Cryptography School for Young Students (QCSYS)}{Institute for Quantum Computing, University of Waterloo}{Summer 2020}{Online}
+% \end{resumeItem}
 
-\moduleHeadF{Webber Academy}{2008 - 2022}{Webber Scholar from grade 6 to 12}{Calgary, AB.}
-\begin{compactList}
-    \item President of the Student Union and annual merit scholarship recipient.
-\end{compactList}
+% \begin{resumeItem}
+% \experienceHead{High School Diploma}{Webber Academy}{2008 - 2022}{Calgary, AB.}
+% \begin{resumeList}
+%     \item President of the Student Union and annual merit scholarship recipient.
+% \end{resumeList}
+% \end{resumeItem}
 
 %% SKILLS 
 
 % \section{Skills}
-% 
-% \subsubsection{Languages}
-% Haskell, Python, C++, JavaScript, Java, Bash, {\LaTeX}, HTML, CSS, Markdown
 
+\begin{resumeItem}
+\subsubsection{Languages}
+Haskell, Python, C++, JavaScript, Java, Bash, {\LaTeX}, HTML, CSS, Markdown, Regex
+
+\subsubsection{Libraries}
+Pandas, Matplotlib, NumPy, Beautiful Soup, Tensorflow, Scikit-learn, OpenCV
+\end{resumeItem}
 
 \end{document}
